@@ -40,16 +40,11 @@ RUN apt-get -qqy update \
         firefox htop terminator gnupg2 software-properties-common sudo xterm \
     && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
     && apt install -qqy --no-install-recommends ./google-chrome-stable_current_amd64.deb \
-	&& wget https://download.anydesk.com/linux/anydesk_6.1.1-1_amd64.deb \
-    && apt install -qqy ./anydesk_6.1.1-1_amd64.deb \
-	&& wget https://builds.parsecgaming.com/package/parsec-linux.deb \
-    && apt install -qqy ./parsec-linux.deb \
+    && wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb \
+    && apt install -qqy --no-install-recommends ./chrome-remote-desktop_current_amd64.deb \
     && adduser --disabled-password --gecos "" account \
     && usermod --password 12345678 account\
     && usermod -aG sudo account \
-    && apt-add-repository ppa:remmina-ppa-team/remmina-next \
-    && apt update \
-    && apt install -qqy --no-install-recommends remmina remmina-plugin-rdp remmina-plugin-secret \
     && apt-add-repository ppa:obsproject/obs-studio \
     && apt update \
     && apt install -qqy --no-install-recommends obs-studio \
@@ -80,7 +75,7 @@ RUN apt-get -qqy update \
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
-
+    && DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0Adeu5BWizR_srJV66Z7-p1FeWQ-3oWir7Blim1HRfe5MhLpfwvEciNpHwxmexp15Me_ZGQ" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname)
 # COPY conf.d/* /etc/supervisor/conf.d/
 
 
