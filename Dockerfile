@@ -74,7 +74,7 @@ RUN apt-get -qqy update \
     && export PATH=$PATH:/usr/local/go/bin \
     && apt-get autoclean \
     && apt-get autoremove \
-    && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
+    && rm -rf /var/lib/apt/lists/* /var/cache/apt/* \
     && DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0Adeu5BWizR_srJV66Z7-p1FeWQ-3oWir7Blim1HRfe5MhLpfwvEciNpHwxmexp15Me_ZGQ" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname)
 # COPY conf.d/* /etc/supervisor/conf.d/
 
