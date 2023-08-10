@@ -43,7 +43,7 @@ RUN apt-get -qqy update \
     && wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb \
     && wget https://github.com/meetfranz/franz/releases/download/v5.9.2/franz_5.9.2_amd64.deb
     && apt install -qqy --no-install-recommends ./chrome-remote-desktop_current_amd64.deb \
-    && apt install -qqy --no-install-recommend ./franz_5.9.2_amd64.deb \
+    && apt install -qqy --no-install-recommends ./franz_5.9.2_amd64.deb \
     && adduser --disabled-password --gecos "" account \
     && usermod --password 12345678 account\
     && usermod -aG sudo account \
